@@ -7,5 +7,15 @@ import { Component } from '@angular/core';
 })
 
 export class WidgetsComponent {
-
+  myColor = 'blue';
+  colors = [
+    'blue',
+    'red',
+    'tomato',
+    'maroon',
+    'papayawhip'
+  ]
+  setColor(color) {
+    this.myColor = color;
+  }
 }

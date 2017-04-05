@@ -1,1 +1,19 @@
-<h1>Widgets for Days!</h1>
+<h1
+  [style.color]="myColor"
+  (click)="setColor('red')">
+  Widgets for Days!</h1>
+  <hr>
+  <div *ngFor="let c of colors; let i = index" [style.background-color]="c">
+    {{c}} = {{i}}
+  </div>
+  <hr>
+  <form novalidate #myForm="ngForm">
+  <input name="colorInput" required type="text" #colorInput
+  [(ngModel)]="myColor">
+  <hr>
+  </form>
+  <div *ngIf="!myForm.valid">
+    Fix your form sucka!
+    <pre>{{myForm.value | json}}</pre>
+    <pre>{{myForm.valid | json}}</pre>
+  </div>
