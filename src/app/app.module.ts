@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Ng2RestAppRoutingModule } from './app-routing.module';
 
-import { ItemsService, UsersService } from './shared';
+import { ItemsService, UsersService, WidgetService } from './shared';
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
@@ -28,7 +28,7 @@ import { WidgetsComponent } from './widgets/widgets.component';
     HttpModule,
     Ng2RestAppRoutingModule
   ],
-  providers: [ItemsService, UsersService],
+  providers: [ItemsService, UsersService, WidgetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
