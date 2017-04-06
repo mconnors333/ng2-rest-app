@@ -1,19 +1,32 @@
-<h1
-  [style.color]="myColor"
-  (click)="setColor('red')">
-  Widgets for Days!</h1>
-  <hr>
-  <div *ngFor="let c of colors; let i = index" [style.background-color]="c">
-    {{c}} = {{i}}
-  </div>
-  <hr>
-  <form novalidate #myForm="ngForm">
-  <input name="colorInput" required type="text" #colorInput
-  [(ngModel)]="myColor">
-  <hr>
-  </form>
-  <div *ngIf="!myForm.valid">
-    Fix your form sucka!
-    <pre>{{myForm.value | json}}</pre>
-    <pre>{{myForm.valid | json}}</pre>
-  </div>
+<pre>{{users | json}}</pre>
+
+<div class="mdl-grid widgets">
+	<div class="mdl-cell mdl-cell--6-col">
+		<div *ngFor="let widget of widgets"
+        (click)="selectWidget(widget)"
+        class="widget-card mdl-card mdl-shadow--2dp">
+      <img [src]="widget.img" [alt]="widget.name" width="100" height="100">
+			<div>
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">{{widget.name}}</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					{{widget.description}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-cell mdl-cell--6-col">
+		<div class="widget-card mdl-card mdl-shadow--2dp">
+			<div class="mdl-card__title">
+				<h2 *ngIf="!selectedWidget"
+        class="mdl-card__title-text">Select a Widget</h2>
+        <h2 *ngIf="selectedWidget" class="mdl-card__title-text">{{selectedWidget.name}}</h2>
+			</div>
+			<div class="mdl-card__supporting-text">
+				<pre>{{selectedWidget | json}}</pre>
+        <button (click)="selectWidget(null)">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>
