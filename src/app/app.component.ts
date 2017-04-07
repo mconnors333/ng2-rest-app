@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular 2 REST Website';
+  title = 'Team Taggers';
   links = {
     items: ['/items'],
-    widgets: ['/widgets']
+    widgets: ['/widgets'],
+    reviews: ['/reviews']
   };
 }
